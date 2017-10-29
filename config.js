@@ -6,17 +6,12 @@
 const path = require('path');
 const yaml = require('yamljs');
 
-const domain = '//localhost/nl';
+const domain = 'localhost:8080';
 const assets = yaml.load('./assets.yml');
 
 let js = {
     assets: {},
     aliases: {},
-    glob: [],
-};
-
-let css = {
-    assets: [],
     glob: [],
 };
 
@@ -46,24 +41,6 @@ Object.keys(assets.javascript).map(function (key) {
     js.glob.push(`${assets.javascript[key].alias.path}`);
 });
 
-console.log(js.aliases);
-
-/*
- Generate CSS paths to be used in gulp.
- */
-Object.keys(assets.css).map(function (key) {
-
-    /*
-     Build our CSS entry points from the yaml file.
-     */
-    css.assets.push(path.resolve(__dirname, assets.css[key].base, assets.css[key].entry));
-
-    /*
-     Build glob paths so we can watch all CSS files in the base folder of our entry point.
-     By doing this we can trigger a CSS build and a browserSync reload after compilation.
-     */
-    css.glob.push(`${assets.css[key].base}/**/*.{scss}`)
-});
 
 /*
  Export our configuration
@@ -75,23 +52,10 @@ module.exports = {
      */
     js: {
         entry: js.assets,
-        dist: path.resolve(__dirname, 'dist/js/'),
+        dist: path.resolve(__dirname, 'web/dist/js/'),
         aliases: js.aliases,
         glob: js.glob,
     },
-
-    /*
-     Scss settings
-     */
-    scss: {
-        src: css.assets,
-        glob: css.glob,
-        dest: path.resolve(__dirname, 'dist/css/'),
-        settings: {
-            outputStyle: 'expanded'
-        }
-    },
-
     support: {
         grid: false,
         browsers: [

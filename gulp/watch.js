@@ -16,13 +16,7 @@ const config = require('./../config.js');
  * Tasks
  */
 gulp.task('watch', ['build', 'browsersync'], function () {
-    watch(config.scss.glob, function () {
-        gulp.start('scss');
-    });
-    watch(config.svg.src, function () {
-        runSequence('svg', 'browsersyncReload');
-    });
-    watch(config.files, function () {
+     watch(config.files, function () {
         gulp.start('browsersyncReload');
     });
     watch(config.js.glob, function () {

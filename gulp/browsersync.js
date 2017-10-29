@@ -15,7 +15,7 @@ const config = require('./../config.js').browsersync;
 /**
  * Tasks
  */
-gulp.task('browsersync', ['scss'], function () {
+gulp.task('browsersync', [], function () {
   browserSync.init(config);
 });
 gulp.task('browsersyncReload', function () {

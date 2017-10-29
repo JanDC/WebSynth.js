@@ -1,7 +1,7 @@
 javascript:
-  components:
-    base: './js/components'
+  websynth:
+    base: './js/websynth'
     alias:
-      name: 'Components'
-      path: './js/components/'
-    entry: './js/components.init.js'
+      name: 'WebSynth'
+      path: './js/websynth/'
+    entry: './js/websynth/init.js'
