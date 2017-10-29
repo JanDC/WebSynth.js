@@ -1,0 +1,10 @@
+{
+  "name": "websynth",
+  "version": "1.0.0",
+  "description": "An attempt to visualize and emulate a modular synthesizer using HTML5 audio and three.js",
+  "repository": "https://github.com/JanDC/WebSynth.js",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.87.1"
+  }
+}

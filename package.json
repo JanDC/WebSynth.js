@@ -1,0 +1,49 @@
+{
+  "name": "itr_base_theme",
+  "version": "1.0.2",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "autoprefixer": "6.3.6",
+    "babel-core": "^6.24.0",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2017": "^6.24.1",
+    "browser-sync": "^2.18.8",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "1.6.0",
+    "gulp-stylelint": "2.0.2",
+    "gulp-svg-sprite": "1.3.1",
+    "gulp-svgmin": "^1.2.3",
+    "gutil": "^1.6.4",
+    "husky": "^0.13.4",
+    "itr-base-theme-css": "^1.4.5",
+    "jquery": "^3.2.1",
+    "path": "^0.12.7",
+    "react-hot-loader": "^1.3.1",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^1.2.2",
+    "svg-country-flags": "^1.1.2",
+    "webpack": "^3.4.1",
+    "webpack-bundle-analyzer": "^2.8.3",
+    "webpack-merge": "^4.1.0",
+    "webpack-stream": "^3.2.0",
+    "yamljs": "^0.2.10"
+  },
+  "devDependencies": {
+    "gulp-watch": "4.3.6"
+  },
+  "scripts": {
+    "postinstall": "cd ./js && yarn",
+    "postmerge": "yarn && gulp build",
+    "build": "node ./node_modules/gulp/bin/gulp.js build",
+    "dev": "node ./node_modules/gulp/bin/gulp.js watch"
+  },
+  "author": "gijsroge <gijs.roge@intracto.com>",
+  "license": "ISC"
+}

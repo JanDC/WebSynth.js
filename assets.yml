@@ -1,0 +1,7 @@
+javascript:
+  components:
+    base: './js/components'
+    alias:
+      name: 'Components'
+      path: './js/components/'
+    entry: './js/components.init.js'
