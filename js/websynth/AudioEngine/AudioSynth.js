@@ -60,10 +60,10 @@ class AudioSynth {
             {
                 name: 'piano',
                 attack: function () {
-                    return 0.002;
+                    return 0.003;
                 },
                 dampen: function (sampleRate, frequency, volume) {
-                    return Math.pow(0.5 * Math.log((frequency * volume) / sampleRate), 2);
+                    return Math.pow(0.4 * Math.log((frequency * volume) / sampleRate), 2);
                 },
                 wave: function (i, sampleRate, frequency, volume) {
                     let base = this.modulate[0];
@@ -86,7 +86,7 @@ class AudioSynth {
                     return 1 + (frequency * 0.01);
                 },
                 wave: function (i, sampleRate, frequency) {
-                    var base = this.modulate[0];
+                    const base = this.modulate[0];
                     return this.modulate[1](
                         i,
                         sampleRate,
@@ -107,7 +107,7 @@ class AudioSynth {
                 },
                 wave: function (i, sampleRate, frequency) {
 
-                    let vars = this.vars;
+                    let vars = this.vars || {};
                     vars.valueTable = !vars.valueTable ? [] : vars.valueTable;
                     if (typeof(vars.playVal) === 'undefined') {
                         vars.playVal = 0;
@@ -342,8 +342,6 @@ class AudioSynth {
     play(sound, note, octave, duration) {
         const src = this.generate(sound, note, octave, duration);
         const audio = new Audio(src);
-        console.log(src);
-        console.log(audio);
         audio.play();
         return true;
     }

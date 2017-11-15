@@ -7,15 +7,27 @@ export default class WebSynth {
 
         const Synth = new AudioSynth();
         this.piano = Synth.createInstrument('piano');
-        this.play('F#', 3, 0.5);
+
+        this.strangerThings = [
+            {octave: 3, note: 'C', duration: 0.3},
+            {octave: 3, note: 'E', duration: 0.3},
+            {octave: 3, note: 'G', duration: 0.3},
+            {octave: 3, note: 'B', duration: 0.3},
+            {octave: 4, note: 'C', duration: 0.3},
+            {octave: 3, note: 'B', duration: 0.3},
+            {octave: 3, note: 'G', duration: 0.3},
+            {octave: 3, note: 'E', duration: 0.3},
+        ];
+        this.index = 0;
+        this.play();
     }
 
-    play(note, octave, duration) {
-        octave++;
-        octave = octave % 3;
+    play() {
+        let {octave, note, duration} = this.strangerThings[this.index];
+        this.index++;
+        this.index = this.index % this.strangerThings.length;
         if (this.piano.play(note, octave, duration)) {
-            console.log(`playing note ${note}-${octave} for ${duration} seconds`);
-            window.setTimeout(this.play.bind(this, note, octave, duration), 1000);
+            window.setTimeout(this.play.bind(this), Math.ceil(duration * 1000));
         }
     }
 
