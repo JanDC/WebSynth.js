@@ -1,25 +1,24 @@
-import * as THREE from 'three';
-import Basic from 'WebSynth/Modules/Basic';
 import {OrbitControls} from 'WebSynth/Three/OrbitControls';
+import AudioSynth from 'WebSynth/AudioEngine/AudioSynth'
 
 export default class WebSynth {
 
     constructor() {
-        this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        this.renderer = new THREE.WebGLRenderer();
-        this.renderer.setSize(window.innerWidth, window.innerHeight);
-        this.modules = [];
-        document.body.appendChild(this.renderer.domElement);
+
+        const Synth = new AudioSynth();
+        this.piano = Synth.createInstrument('piano');
+        this.play('F#', 3, 0.5);
     }
 
-    run() {
-        this.addModule(new Basic());
-        this.camera.position.z = 5;
-        this.controls = new OrbitControls(this.camera,this.renderer.domElement);
-
-        this.render(0);
+    play(note, octave, duration) {
+        octave++;
+        octave = octave % 3;
+        if (this.piano.play(note, octave, duration)) {
+            console.log(`playing note ${note}-${octave} for ${duration} seconds`);
+            window.setTimeout(this.play.bind(this, note, octave, duration), 1000);
+        }
     }
+
 
     addModule(module) {
         this.modules.push(module.getModel());
