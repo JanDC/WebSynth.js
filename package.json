@@ -30,7 +30,7 @@
     "run-sequence": "^1.2.2",
     "svg-country-flags": "^1.1.2",
     "webpack": "^3.4.1",
-    "webpack-bundle-analyzer": "^2.8.3",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-merge": "^4.1.0",
     "webpack-stream": "^3.2.0",
     "yamljs": "^0.2.10"
