@@ -3203,9 +3203,9 @@ itr-base-theme-css@^1.4.5:
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/itr-base-theme-css/-/itr-base-theme-css-1.4.6.tgz#5fc8fbe66b674c8d08a34d288853e654d48c0b0e"
 
-jquery@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
+jquery@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.0.tgz#8de513fa0fa4b2c7d2e48a530e26f0596936efdf"
 
 js-base64@^2.1.8, js-base64@^2.1.9:
   version "2.3.2"
